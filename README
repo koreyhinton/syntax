@@ -1,0 +1,26 @@
+# SYNTAX PDF DOCUMENT BROWSER
+
+koreyhinton.com/syntax
+
+# BUILD INSTRUCTIONS
+# Requires some or possibly all of these installed # tested on Ubuntu
+#    sudo apt-get install texlive-latex-base
+#    sudo apt-get install texlive
+#    sudo apt-get install texlive-extra-utils
+#    sudo apt-get install texlive-full
+#    tlmgr install texliveonfly
+#     tlmgr init-usertree
+#     tlmgr install texliveonfly
+# Requires unifont package to be installed
+#    sudo apt-get install unifont  # tested on Ubuntu
+# Requires a csv file placed in files/db/js.csv with headers (and data rows):
+#    id    name    syntax    reference    example_usage
+
+export PATH="${PATH}:${PWD}"  # with repo root as cd
+syntax
+. ns run js >tex/js/js.tex  # writes to files/tex/js/js.tex
+cd tex/js   # within files
+lualatex js.tex
+cp js.pdf ../../../
+exit
+

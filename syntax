@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# syntax reference builder
+
+script_dir="${0%/*}"
+
+( cd "${script_dir}/files"; bash --init-file "${script_dir}/syntax.profile" )

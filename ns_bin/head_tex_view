@@ -1,0 +1,28 @@
+\documentclass[12pt, a4paper, oneside, titlepage]{book}%article}
+\usepackage{unicode-math}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\newcommand{\s}{\hspace{1 mm}}
+\newfont\ucj{Junicode}
+\newfont\ucd{{DejaVu Sans}}
+\newfont{\uf}{Unifont at 16pt}
+\newcommand{\var}[1]{\color{red}\uf{#1}}
+
+
+% \makeindex[columns=2, title={Index\label{index}}]
+
+\begin{document}
+\author{Korey Hinton}
+\font\titlefont={TeX Gyre Chorus} at 60pt
+\title{{\titlefont ${syn_title}}}
+\maketitle
+\tableofcontents
+
+
+\chapter{Copying and sharing this document}
+
+This \textbf{${syn_title}} document is licensed under the
+\textbf{GNU AGPL-3.0-only} in both published and source form.
+
+\appendix

@@ -1,0 +1,16 @@
+# tex
+*.log
+*.out
+*.pdf
+*.tex
+*.toc
+*.aux
+
+# syntax data files
+*.csv
+
+# Emacs autosave files
+\#*\#
+.\#*
+*\#
+*~
