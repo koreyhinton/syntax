@@ -1,0 +1,15 @@
+id,lang,name,syntax
+1,js,Import Declaration,"import { ʋ as ɲ, … }, ω as ɳ from “ɱ”;"
+2,js,Instanceof Operator,v instanceof O
+3,js,Destructuring Assignment,"Const { v,… } = a;"
+4,c#,Raw String Literal,"“””Ɋ””"""
+5,c#,Interpolated Raw String,$”””Ɋ{{ʋ}}”””
+6,c#,Verbatim String Literal With Literal Backslash,"@”ʂ\"""
+7,c#,Verbatim String Literal With Escaped Quotes,"@”ʂ””ʂ”""ʂ"""
+8,c#,Interpolated Verbatim String,"$@”ʂ\{ʋ}"""
+9,c#,Interpolated String,"$”ʂ{ʋ}"""
+10,js,Optional Chaining Operator,ơ?.ȩ
+11,js,New Object Method,{ ɱ(ą) { Ƅ } }
+12,js,Function On New Object,{ ƒ: function(ą) { Ƅ } }
+13,c#,GetFullPath Method,System.IO.Path.GetFullPath(ʂ)
+14,bash,Shell Parameter Expansion,${ƥ:-ẉ}

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+script_dir="${BASH_SOURCE[0]}"
+
+langs=$(cat << EOF
+js
+c#
+EOF
+)
+
+
+for stx_lang in $langs
+do
+    . ns run "${script_dir}/gen"
+done
+
+

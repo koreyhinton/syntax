@@ -1,16 +1,13 @@
 #!/bin/bash
 
-syn_title="JavaScript Syntax Reference"
-. ns view head_tex_view
+. ns import sv_id sv_name sv_syntax
 
-sv_file=db/js.csv
-sv_id=1
-. ns run load 1>/dev/null # | grep -v "sv_file" | grep -v "sv_example_usage" | grep -v "sv_name" | grep -v "sv_syntax" | grep -v "sv_reference" | grep -v "sv_id"
+sv-load 1>/dev/null # | grep -v "sv_file" | grep -v "sv_example_usage" | grep -v "sv_name" | grep -v "sv_syntax" | grep -v "sv_reference" | grep -v "sv_id"
 
-echo "$sv_name" 1>&2
-echo "$sv_syntax" 1>&2
-echo "$sv_reference" 1>&2
-echo "$sv_example_usage" 1>&2
+# echo "$sv_name" 1>&2
+# echo "$sv_syntax" 1>&2
+# echo "$sv_reference" 1>&2
+# echo "$sv_example_usage" 1>&2
 
 tex="\\chapter{${sv_name}}"$'\n'
 
@@ -38,14 +35,14 @@ done
 
 tex="${tex}"$'\n'"\$"$'\n'"}"$'\n'
 
-tex="${tex}\\par"$'\n'
-
-tex="${tex}\\tiny Reference: \\url{""${sv_reference}""}"$'\n'
-
-tex="${tex}\\par"$'\n'
-
-tex="${tex}\\tiny Example Usage: \\url{""${sv_example_usage}""}"$'\n'
+# tex="${tex}\\par"$'\n'
+# 
+# tex="${tex}\\tiny Reference: \\url{""${sv_reference}""}"$'\n'
+# 
+# tex="${tex}\\par"$'\n'
+# 
+# tex="${tex}\\tiny Example Usage: \\url{""${sv_example_usage}""}"$'\n'
 
 echo "$tex"
 
-. ns view tail_tex_view
+. ns export sv_id sv_name sv_syntax

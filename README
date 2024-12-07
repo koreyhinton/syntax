@@ -16,11 +16,15 @@ koreyhinton.com/syntax
 # Requires a csv file placed in files/db/js.csv with headers (and data rows):
 #    id    name    syntax    reference    example_usage
 
-export PATH="${PATH}:${PWD}"  # with repo root as cd
-syntax
-. ns run js >tex/js/js.tex  # writes to files/tex/js/js.tex
-cd tex/js   # within files
-lualatex js.tex
-cp js.pdf ../../../
-exit
+# INSTALL INSTRUCTIONS
+
+ns-clone stx https://github.com/koreyhinton/syntax.git
+
+# GENERATE ONE LANGUAGE'S SYNTAX DOCUMENT
+
+stx_lang=js
+stx-gen-lang
+
+# GENERATE ALL LANGUAGE'S SYNTAX DOCUMENTS
+stx-gen-all
 

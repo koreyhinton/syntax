@@ -1,0 +1,47 @@
+#!/bin/bash
+
+. ns import stx_lang
+
+script_dir="${BASH_SOURCE[0]}"
+files_dir="${script_dir}/files"
+
+syn_title="${stx_lang} Syntax Reference"
+tex_head=`. ns view ${script_dir}/head_tex_view`
+
+sv_file="${files_dir}/db/syntax.csv"
+sv_lang="$stx_lang"
+sv_filter=and
+
+tex_body=
+
+i=1
+while [[ i -lt 1000 ]]
+do
+    sv_id=$i
+    . ns load 2>&1 1>/dev/null
+    if [[ -z "$sv_name" ]]; then
+        . ns delete sv_name sv_syntax
+        continue;
+    fi
+
+    sub_tex=`. ns run "${script_dir}/print-row"`
+    tex_body="${tex_body}"$'\n'"${sub_tex}"
+
+    . ns delete sv_name sv_syntax sub_tex
+done
+
+tex_tail=`. ns view ${script_dir}/tail_tex_view`
+
+tex="${tex_head}"$'\n'"${tex_body}"$'\n'"${tex_tail}"
+
+# WRITE PDF TO DISK
+save_dir="$PWD"
+
+cd "${files_dir}/tex/${lang}"
+echo "$stx_tex" > "${stx_lang}.tex"
+lualatex "${stx_lang}.tex"
+cp "${stx_lang}.pdf" "${script_dir}/${stx_lang}.pdf"
+
+cd "$save_dir"
+
+. ns export stx_lang

@@ -6,9 +6,6 @@
 *.toc
 *.aux
 
-# syntax data files
-*.csv
-
 # Emacs autosave files
 \#*\#
 .\#*
