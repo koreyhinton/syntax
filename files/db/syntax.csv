@@ -3,7 +3,7 @@ id,lang,name,syntax
 2,js,Instanceof Operator,v instanceof O
 3,js,Destructuring Assignment,"Const { v,… } = a;"
 4,c#,Raw String Literal,"“””Ɋ””"""
-5,c#,Interpolated Raw String,$”””Ɋ{{ʋ}}”””
+5,c#,Interpolated Raw String,$$”””Ɋ{{ʋ}}”””
 6,c#,Verbatim String Literal With Literal Backslash,"@”ʂ\"""
 7,c#,Verbatim String Literal With Escaped Quotes,"@”ʂ””ʂ”""ʂ"""
 8,c#,Interpolated Verbatim String,"$@”ʂ\{ʋ}"""

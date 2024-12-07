@@ -5,7 +5,7 @@
 script_dir="${BASH_SOURCE[0]%/*}"
 files_dir="${script_dir}/files"
 
-syn_title="${stx_lang} Syntax Reference"
+syn_title=$(echo "${stx_lang} Syntax Reference" | sed "s/#/\\\#/g")
 tex_head=`. ns view ${script_dir}/ns_view/head_tex_view`
 
 sv_file="${files_dir}/db/syntax.csv"

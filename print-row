@@ -17,12 +17,16 @@ while [[ $i -lt ${#sv_syntax} ]];
 do
     if [[ "${sv_syntax:$i:1}" == "{" ]]; then
         tex="${tex}\\{"
+    elif [[ "${sv_syntax:$i:1}" == "\$" ]]; then
+        tex="${tex}\\\$"
     elif [[ "${sv_syntax:$i:1}" == "}" ]]; then
         tex="${tex}\\}"
     elif [[ "${sv_syntax:$i:1}" = "“" ]]; then
         tex="${tex}\`\`"
+        # tex="${tex}\$\`\`\$"
     elif [[ "${sv_syntax:$i:1}" = "”" ]]; then
         tex="${tex}''"
+        # tex="${tex}\$''\$"
     elif [[ ${sv_syntax:$i:1} = *[![:ascii:]]* ]]; then
         tex="${tex}\${\\var{""${sv_syntax:$i:1}""}}\$"
     elif [[ "${sv_syntax:$i:1}" == " " ]]; then
