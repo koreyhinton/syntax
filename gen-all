@@ -1,6 +1,6 @@
 #!/bin/bash
 
-script_dir="${BASH_SOURCE[0]}"
+script_dir="${BASH_SOURCE[0]%/*}"
 
 langs=$(cat << EOF
 js
@@ -11,7 +11,7 @@ EOF
 
 for stx_lang in $langs
 do
-    . ns run "${script_dir}/gen"
+    . ns run "${script_dir}/gen-lang"
 done
 
 

@@ -19,6 +19,10 @@ koreyhinton.com/syntax
 # INSTALL INSTRUCTIONS
 
 ns-clone stx https://github.com/koreyhinton/syntax.git
+# until ns-clone gets fixed, have to run this at start of shell session (or at the end of .bashrc):
+unalias sv-load
+sv-load() { . ns run "/k/repos/kh/ns-clone/repos/sv/commands/load"; }
+export -f sv-load
 
 # GENERATE ONE LANGUAGE'S SYNTAX DOCUMENT
 

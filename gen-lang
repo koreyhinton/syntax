@@ -2,11 +2,11 @@
 
 . ns import stx_lang
 
-script_dir="${BASH_SOURCE[0]}"
+script_dir="${BASH_SOURCE[0]%/*}"
 files_dir="${script_dir}/files"
 
 syn_title="${stx_lang} Syntax Reference"
-tex_head=`. ns view ${script_dir}/head_tex_view`
+tex_head=`. ns view ${script_dir}/ns_view/head_tex_view`
 
 sv_file="${files_dir}/db/syntax.csv"
 sv_lang="$stx_lang"
@@ -15,30 +15,39 @@ sv_filter=and
 tex_body=
 
 i=1
-while [[ i -lt 1000 ]]
+while [[ i -lt 20 ]]
 do
     sv_id=$i
-    . ns load 2>&1 1>/dev/null
+    # set | grep "^sv_"
+
+    . ns run load 1>/dev/null 2>/dev/null
+
+    # echo "sv_id (${sv_id}) sv_lang (${sv_lang}) sv_name (${sv_name})"
     if [[ -z "$sv_name" ]]; then
         . ns delete sv_name sv_syntax
+        ((i++))
         continue;
     fi
 
     sub_tex=`. ns run "${script_dir}/print-row"`
-    tex_body="${tex_body}"$'\n'"${sub_tex}"
+    tex_body="${tex_body}${sub_tex}"
 
     . ns delete sv_name sv_syntax sub_tex
+
+    ((i++))
 done
 
-tex_tail=`. ns view ${script_dir}/tail_tex_view`
+tex_tail=`. ns view ${script_dir}/ns_view/tail_tex_view`
 
 tex="${tex_head}"$'\n'"${tex_body}"$'\n'"${tex_tail}"
+
+# echo "$tex"
 
 # WRITE PDF TO DISK
 save_dir="$PWD"
 
 cd "${files_dir}/tex/${lang}"
-echo "$stx_tex" > "${stx_lang}.tex"
+echo "$tex" > "${stx_lang}.tex"
 lualatex "${stx_lang}.tex"
 cp "${stx_lang}.pdf" "${script_dir}/${stx_lang}.pdf"
 
